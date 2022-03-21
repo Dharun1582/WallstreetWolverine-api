@@ -1,0 +1,31 @@
+module.exports=(sequelize,datatypes)=>{
+    const Members=sequelize.define("Members",{
+        id:{
+            type:datatypes.UUID,
+            primaryKey:true
+        },
+        name:{
+            type:datatypes.STRING,
+        },
+        kid:{
+            type:datatypes.STRING,
+            unique:true
+        },
+        cnumber:{
+            type:datatypes.STRING,
+        },
+        mail:{
+            type:datatypes.STRING,
+        },
+        college:{
+            type:datatypes.STRING,
+        },
+        department:{
+            type:datatypes.STRING,
+        },
+        password:{
+            type:datatypes.STRING,
+        }
+    });
+    return Members;
+}

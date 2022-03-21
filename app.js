@@ -20,7 +20,7 @@ const indId = setInterval(() => {
   }
 }, 20000);
 
-app.use(cors({ origin: "http://localhost:3001" }));
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
