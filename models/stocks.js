@@ -1,6 +1,6 @@
 module.exports=(sequelize,datatypes)=>{
-    const Stock=sequelize.define("Stock",{
-        kid:{
+    const stocks=sequelize.define("stocks",{
+        email:{
             type:datatypes.STRING,
             primaryKey:true
         },
@@ -26,5 +26,5 @@ module.exports=(sequelize,datatypes)=>{
             type:datatypes.INTEGER,
         },
     });
-    return Stock;
+    return stocks;
 }

@@ -2,14 +2,14 @@ const router = require("express").Router();
 
 const authMiddleware = require("../middleware/tokenAuth");
 
-const stock = require("../controllers/stock");
+const stocks = require("../controllers/stocks");
 
-router.post(
+router.get(
 	"/",
 	// authValidator.tokenAuthValidator,
 	// leaderboardValidator.registerPlayerValidator,
 	// validator.validate,
 	authMiddleware.tokenAuth,
-	stock.getWallet,
+	stocks.checkUser,
 )
 module.exports = router;
