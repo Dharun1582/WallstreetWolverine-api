@@ -135,7 +135,7 @@ const buyStock = async (req, res) => {
                 flag: 1,
                 number: nos,
             });
-            return res.status(200).send("transaction success");
+            return res.status(200).send({message:"transaction success"});
         }
         else {
             return res.status(404).send({
@@ -185,7 +185,7 @@ const sellStock = async (req, res) => {
                 flag: 2,
                 number: nos,
             })
-            return res.status(200).send("transaction success");
+            return res.status(200).send({message:"transaction success"});
         }
         else {
             return res.status(404).send({
