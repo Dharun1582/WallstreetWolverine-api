@@ -9,8 +9,10 @@ var userRouter = require('./routes/user');
 var graphRouter = require('./routes/graphUpdate');
 var stockRouter = require('./routes/stocks');
 var checkRouter = require('./routes/checkUser');
+var checkRecordRouter = require('./routes/checkRecord');
 var buyStockRouter = require('./routes/buyStock');
 var sellStockRouter = require('./routes/sellStock');
+var historyRouter = require('./routes/history');
 
 var app = express();
 global.index = 1;
@@ -39,8 +41,10 @@ app.use('/profile', userRouter);
 app.use('/graphUpdate', graphRouter);
 app.use('/stock', stockRouter);
 app.use('/checkUser', checkRouter);
+app.use('/checkRecord', checkRecordRouter);
 app.use('/buyStock', buyStockRouter);
 app.use('/sellStock', sellStockRouter);
+app.use('/history', historyRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
