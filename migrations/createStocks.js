@@ -8,22 +8,22 @@ module.exports = {
                 type: Sequelize.STRING,
 
             },
-            CokaCula: {
+            VocaCola: {
                 type: Sequelize.INTEGER
             },
-            HettanPetroleum: {
+            Yecher: {
                 type: Sequelize.INTEGER
             },
-            Vedophene: {
+            HindPetroleum: {
+                type: Sequelize.INTEGER
+            },
+            VI: {
+                type: Sequelize.INTEGER
+            },
+            LyccaLabs: {
                 type: Sequelize.INTEGER
             },
             Abibas: {
-                type: Sequelize.INTEGER
-            },
-            LycaLabs: {
-                type: Sequelize.INTEGER
-            },
-            Yechier: {
                 type: Sequelize.INTEGER
             },
             Wallet: {

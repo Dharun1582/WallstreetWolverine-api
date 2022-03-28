@@ -29,12 +29,12 @@ const checkUser = async (req, res) => {
             // });
             stocks.create({
                 email: email,
-                CokaCula: 0,
-                HettanPetroleum: 0,
-                Vedophene: 0,
+                VocaCola: 0,
+                Yecher: 0,
+                HindPetroleum: 0,
+                VI: 0,
+                LyccaLabs: 0,
                 Abibas: 0,
-                LycaLabs: 0,
-                Yechier: 0,
                 Wallet: 10000,
             }).then(() => {
                 res.json({
@@ -132,7 +132,7 @@ const buyStock = async (req, res) => {
             transactions.create({
                 email: email,
                 company: column,
-                flag: 1,
+                flag: "Bought",
                 number: nos,
             });
             return res.status(200).send({message:"transaction success"});
@@ -182,7 +182,7 @@ const sellStock = async (req, res) => {
             transactions.create({
                 email: email,
                 company: column,
-                flag: 2,
+                flag: "Sold",
                 number: nos,
             })
             return res.status(200).send({message:"transaction success"});

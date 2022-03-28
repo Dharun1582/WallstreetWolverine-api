@@ -16,7 +16,7 @@ module.exports = {
                 type: Sequelize.STRING
             },
             flag: {
-                type: Sequelize.INTEGER
+                type: Sequelize.STRING
             },
             number: {
                 type: Sequelize.INTEGER

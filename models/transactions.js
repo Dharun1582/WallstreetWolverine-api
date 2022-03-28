@@ -12,7 +12,7 @@ module.exports=(sequelize,datatypes)=>{
             type:datatypes.STRING,
         },
         flag: {
-            type:datatypes.INTEGER,
+            type:datatypes.STRING,
         },
         number: {
             type:datatypes.INTEGER,

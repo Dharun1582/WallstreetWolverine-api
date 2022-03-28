@@ -4,22 +4,22 @@ module.exports=(sequelize,datatypes)=>{
             type:datatypes.STRING,
             primaryKey:true
         },
-        CokaCula: {
+        VocaCola: {
             type:datatypes.INTEGER,
         },
-        HettanPetroleum: {
+        Yecher: {
             type:datatypes.INTEGER,
         },
-        Vedophene: {
+        HindPetroleum: {
+            type:datatypes.INTEGER,
+        },
+        VI: {
+            type:datatypes.INTEGER,
+        },
+        LyccaLabs: {
             type:datatypes.INTEGER,
         },
         Abibas: {
-            type:datatypes.INTEGER,
-        },
-        LycaLabs: {
-            type:datatypes.INTEGER,
-        },
-        Yechier: {
             type:datatypes.INTEGER,
         },
         Wallet: {
