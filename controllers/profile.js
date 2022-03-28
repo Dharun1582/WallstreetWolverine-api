@@ -29,7 +29,7 @@ const getHistory = async (req, res) => {
         });
 
         if (historyData) {
-            return res.send(profile);
+            return res.send(historyData);
         }
         else {
             return res.status(404).send({

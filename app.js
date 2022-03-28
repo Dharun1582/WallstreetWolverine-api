@@ -19,21 +19,21 @@ global.index = 1;
 global.bIndex = true;
 global.min = 0;
 const indId = setInterval(() => {
-  min += 10;
-  if (min >= 20) {
+  min += 1;
+  if (min >= 2) {
     bIndex = false;
   }
 
-  if (min >= 30) {
+  if (min >= 5) {
     index += 1;
     min = 0;
   }
 
-  if (index >= 13) {
+  if (index >= 61) {
     console.log("Hi");
     clearInterval(indId);
   }
-}, );
+}, 60000);
 
 app.use(cors());
 // view engine setup
