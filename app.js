@@ -16,15 +16,24 @@ var historyRouter = require('./routes/history');
 
 var app = express();
 global.index = 1;
+global.bIndex = true;
+global.min = 0;
 const indId = setInterval(() => {
-  index++;
-  console.log(index);
+  min += 10;
+  if (min >= 20) {
+    bIndex = false;
+  }
+
+  if (min >= 30) {
+    index += 1;
+    min = 0;
+  }
 
   if (index >= 13) {
     console.log("Hi");
     clearInterval(indId);
   }
-}, 20000);
+}, );
 
 app.use(cors());
 // view engine setup
