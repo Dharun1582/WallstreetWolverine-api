@@ -201,67 +201,10 @@ const sellStock = async (req, res) => {
     }
 }
 
-const checkRecord = async (req, res) => {
-    try {
-        const { email } = req.user;
-        
-
-        const user = await users.findOne({
-            where: {
-                email,
-            },
-        });
-
-        if (!user) {
-            return res.status(404).send({
-                message: "User details not found."
-            });
-        }
-
-        // const email = 'qwerty@gmail.com';
-        const Op = sequelize.Op;
-        const NOW = new Date();
-        const min = NOW.getMinutes();
-        const START = new Date();
-        console.log(START)
-        START.setHours(NOW.getHours(),((min>30)?30:0));
-        console.log(START)
-        console.log(NOW)
-        console.log(NOW.getHours())
-        const stockData = await transactions.findOne({
-            where: {
-                email: email,
-                createdAt: {
-                    [Op.gt]: START,
-                    [Op.lt]: NOW
-                }
-            },
-        });
-
-        if (stockData) {
-            return res.status(403).send({
-                message: "Cannot proceed transaction"
-            });
-        }
-        else {
-            return res.status(200).send({
-                message: "Transaction under processing",
-            });
-        }
-
-
-
-    } catch (error) {
-        console.error(error);
-        return res.status(500).send({ message: "Server Error. Try again.", gh: 'con' });
-    }
-}
-
 
 module.exports = {
     getWallet,
     checkUser,
     buyStock,
     sellStock,
-    checkRecord,
 };

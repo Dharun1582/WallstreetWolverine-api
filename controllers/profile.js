@@ -1,3 +1,4 @@
+const { sequelize } = require("../models");
 const stocks = require("../models").stocks;
 const users = require("../models").user;
 const transactions = require("../models").transactions;
@@ -26,6 +27,7 @@ const getHistory = async (req, res) => {
             where: {
                 email: email,
             },
+            order: sequelize.literal('createdAt DESC'),
         });
 
         if (historyData) {
