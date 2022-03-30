@@ -16,6 +16,9 @@ var historyRouter = require('./routes/history');
 
 var app = express();
 global.index = 1;
+//news-index
+global.nIndex = 1;
+
 global.min = 0;
 const indId = setInterval(() => {
   min += 1;
@@ -29,6 +32,17 @@ const indId = setInterval(() => {
     clearInterval(indId);
   }
 }, 60000);
+
+//news-index
+const nIndId = setInterval(() => {
+  nIndex++;
+  console.log(nIndex);
+
+  if (nIndex >= 25) {
+    console.log("Hello");
+    clearInterval(nIndId);
+  }
+}, 15000);
 
 app.use(cors());
 // view engine setup

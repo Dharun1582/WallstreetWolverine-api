@@ -14,6 +14,7 @@ router.get('/', function (req, res, next) {
   // let t = `${hours}:${minutes}`;
   res.json({
     i: index,
+    ni: nIndex,
     time: minutes,
   });
 });
