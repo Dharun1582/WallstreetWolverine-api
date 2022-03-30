@@ -10,12 +10,7 @@ router.get('/', function (req, res, next) {
   // if (minutes > 30) {
   //   minutes -= 30;
   // }
-  if (minutes%2 == 0){
-    minutes = 2;
-  }
-  else{
-    minutes = 1;
-  }
+  minutes = minutes % 5;
   // let t = `${hours}:${minutes}`;
   res.json({
     i: index,

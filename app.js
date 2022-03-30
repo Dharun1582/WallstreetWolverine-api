@@ -9,7 +9,7 @@ var userRouter = require('./routes/user');
 var graphRouter = require('./routes/graphUpdate');
 var stockRouter = require('./routes/stocks');
 var checkRouter = require('./routes/checkUser');
-var checkRecordRouter = require('./routes/checkRecord');
+// var checkRecordRouter = require('./routes/checkRecord');
 var buyStockRouter = require('./routes/buyStock');
 var sellStockRouter = require('./routes/sellStock');
 var historyRouter = require('./routes/history');
@@ -19,15 +19,24 @@ global.index = 1;
 //news-index
 global.nIndex = 1;
 //
+global.bIndex = true;
+global.min = 0;
 const indId = setInterval(() => {
-  index++;
-  console.log(index);
+  min += 1;
+  if (min >= 2) {
+    bIndex = false;
+  }
 
-  if (index >= 13) {
+  if (min >= 5) {
+    index += 1;
+    min = 0;
+  }
+
+  if (index >= 61) {
     console.log("Hi");
     clearInterval(indId);
   }
-}, 20000);
+}, 60000);
 
 //news-index
 const nIndId = setInterval(() => {
@@ -55,7 +64,7 @@ app.use('/profile', userRouter);
 app.use('/graphUpdate', graphRouter);
 app.use('/stock', stockRouter);
 app.use('/checkUser', checkRouter);
-app.use('/checkRecord', checkRecordRouter);
+// app.use('/checkRecord', checkRecordRouter);
 app.use('/buyStock', buyStockRouter);
 app.use('/sellStock', sellStockRouter);
 app.use('/history', historyRouter);
