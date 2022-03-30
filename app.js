@@ -16,14 +16,9 @@ var historyRouter = require('./routes/history');
 
 var app = express();
 global.index = 1;
-global.bIndex = true;
 global.min = 0;
 const indId = setInterval(() => {
   min += 1;
-  if (min >= 2) {
-    bIndex = false;
-  }
-
   if (min >= 5) {
     index += 1;
     min = 0;
