@@ -13,6 +13,7 @@ var checkRouter = require('./routes/checkUser');
 var buyStockRouter = require('./routes/buyStock');
 var sellStockRouter = require('./routes/sellStock');
 var historyRouter = require('./routes/history');
+var authRoutes = require('./routes/auth');
 
 var app = express();
 global.index = 1;
@@ -21,6 +22,24 @@ global.nIndex = 1;
 //
 global.bIndex = true;
 global.min = 0;
+
+
+
+const setIndex=()=>{
+  var cur_time=new Date();
+  var start_time=new Date("Sat Mar 31 2022 16:00:00 GMT+0530");
+  // console.log();
+  var mindiff=(parseInt(Math.abs(cur_time.getTime() - start_time.getTime()) / (1000 * 60)));
+  var x=mindiff/30;
+  var y=mindiff/15;
+
+  nIndex=Math.ceil(y);
+  index=Math.ceil(x); 
+}
+
+setIndex();
+
+
 const indId = setInterval(() => {
   min += 1;
   if (min >= 2) {
@@ -43,7 +62,7 @@ const nIndId = setInterval(() => {
   nIndex++;
   console.log(nIndex);
 
-  if (nIndex >= 25) {
+  if (nIndex >= 153) {
     console.log("Hello");
     clearInterval(nIndId);
   }
@@ -68,6 +87,7 @@ app.use('/checkUser', checkRouter);
 app.use('/buyStock', buyStockRouter);
 app.use('/sellStock', sellStockRouter);
 app.use('/history', historyRouter);
+app.use('/api/auth', authRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
