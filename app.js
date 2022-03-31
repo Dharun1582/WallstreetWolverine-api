@@ -20,6 +20,7 @@ global.index = 1;
 global.nIndex = 1;
 
 global.min = 0;
+
 const indId = setInterval(() => {
   min += 1;
   if (min >= 5) {
