@@ -20,13 +20,15 @@ global.index = 1;
 global.nIndex = 1;
 
 global.min = 0;
+global.Min = 0;
 
 const indId = setInterval(() => {
   min += 1;
-  if (min >= 5) {
+  if (min >= 6) {
     index += 1;
     min = 0;
   }
+
 
   if (index >= 61) {
     console.log("Hi");
@@ -36,14 +38,16 @@ const indId = setInterval(() => {
 
 //news-index
 const nIndId = setInterval(() => {
-  nIndex++;
-  console.log(nIndex);
-
-  if (nIndex >= 25) {
+  Min += 1;
+  if (Min >= 3) {
+    nIndex += 1;
+    Min = 0;
+  }
+  if (nIndex >= 153) {
     console.log("Hello");
     clearInterval(nIndId);
   }
-}, 15000);
+}, 60000);
 
 app.use(cors());
 // view engine setup

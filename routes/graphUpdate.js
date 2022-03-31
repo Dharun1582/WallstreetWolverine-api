@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const graph = require('../data/graph.json');
+const news = require('../data/news.json');
 
 /* GET users listing. */
 
@@ -16,6 +17,7 @@ router.get('/', function (req, res, next) {
   res.json({
     i: index,
     gData: graph[index],
+    news: news[nIndex],
     ni: nIndex,
     time: minutes,
   });
