@@ -19,8 +19,7 @@ var app = express();
 global.index = 1;
 //news-index
 global.nIndex = 1;
-//
-global.bIndex = true;
+
 global.min = 0;
 
 
@@ -42,10 +41,6 @@ setIndex();
 
 const indId = setInterval(() => {
   min += 1;
-  if (min >= 2) {
-    bIndex = false;
-  }
-
   if (min >= 5) {
     index += 1;
     min = 0;

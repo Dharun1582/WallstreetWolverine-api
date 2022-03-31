@@ -6,6 +6,7 @@ const { sequelize } = require("../models");
 const stocks = require("../models").stocks;
 const users = require("../models").user;
 const transactions = require("../models").transactions;
+const graph = require("../data/graph.json");
 // const Members = require("../models").Members;
 
 
@@ -107,6 +108,13 @@ const buyStock = async (req, res) => {
         const  column  = req.params.column;
         const  value  = req.params.value;
         const  nos = req.params.nos;
+
+        if (nos < 0) {
+            return res.status(403).send({
+                message: "Invalid Number of Stocks"
+            });
+        }
+
         const user = await users.findOne({
             where: {
                 email,
@@ -121,7 +129,7 @@ const buyStock = async (req, res) => {
 
 
         
-        const stockData = await stocks.update({[column]: sequelize.literal(`${column} + ${nos}`), Wallet : value},{
+        const stockData = await stocks.update({[column]: sequelize.literal(`${column} + ${nos}`), Wallet : sequelize.literal(`Wallet - ${nos}*${value}`)},{
             where: {
                 email,
             },
@@ -157,6 +165,17 @@ const sellStock = async (req, res) => {
         const  column  = req.params.column;
         const  value  = req.params.value;
         const  nos = req.params.nos;
+        if (nos < 0) {
+            return res.status(403).send({
+                message: "Invalid Number of Stocks"
+            });
+        }
+
+        if(value != graph[index][column][5]){
+            return res.status(403).send({
+                message: "OOOmbu"
+            });
+        }
         const user = await users.findOne({
             where: {
                 email,
@@ -171,7 +190,7 @@ const sellStock = async (req, res) => {
 
 
         
-        const stockData = await stocks.update({[column]: sequelize.literal(`${column} - ${nos}`), Wallet : value},{
+        const stockData = await stocks.update({[column]: sequelize.literal(`${column} - ${nos}`), Wallet : sequelize.literal(`Wallet + ${nos}*${value}`)},{
             where: {
                 email,
             },
@@ -200,6 +219,7 @@ const sellStock = async (req, res) => {
         return res.status(500).send({ message: "Server Error. Try again.", gh: 'con' });
     }
 }
+
 
 
 module.exports = {
