@@ -37,7 +37,7 @@ setIndex();
 
 
 
-const setIndex=()=>{
+/*const setIndex=()=>{
   var cur_time=new Date();
   var start_time=new Date("Sat Mar 31 2022 16:00:00 GMT+0530");
   // console.log();
@@ -49,7 +49,7 @@ const setIndex=()=>{
   index=Math.ceil(x); 
 }
 
-setIndex();
+setIndex();*/
 
 
 const indId = setInterval(() => {

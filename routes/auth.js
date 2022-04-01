@@ -1,6 +1,6 @@
 const express = require("express");
 const passport = require("passport");
-require("../controllers/googleauth.js")(passport);
+require("../controllers/googleAuth.js")(passport);
 const router = express.Router();
 
 const auth = require("../controllers/gsignin");

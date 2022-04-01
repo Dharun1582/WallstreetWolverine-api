@@ -51,7 +51,8 @@ const getHistory = async (req, res) => {
 const getProfile = async (req, res) => {
     try {
         const { email } = req.user;
-        
+       	console.log(email, req.user);
+
 
         const user = await users.findOne({
             where: {
