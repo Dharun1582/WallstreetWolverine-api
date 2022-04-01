@@ -25,7 +25,7 @@ global.Min = 0;
 
 const setIndex = () => {
   const currTime = new Date();
-  const startTime = new Date("Sat Mar 31 2022 19:15:00 GMT+0530");
+  const startTime = new Date("Sat Apr 01 2022 10:00:00 GMT+0530");
   const minDiff = (parseInt(Math.abs(currTime.getTime()-startTime.getTime())/(1000*60)));
   const x = minDiff/6;
   const y = minDiff/3;
