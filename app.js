@@ -13,6 +13,7 @@ var checkRouter = require('./routes/checkUser');
 var buyStockRouter = require('./routes/buyStock');
 var sellStockRouter = require('./routes/sellStock');
 var historyRouter = require('./routes/history');
+const { parse } = require('path');
 
 var app = express();
 global.index = 1;
@@ -21,6 +22,18 @@ global.nIndex = 1;
 
 global.min = 0;
 global.Min = 0;
+
+const setIndex = () => {
+  const currTime = new Date();
+  const startTime = new Date("Sat Mar 31 2022 19:15:00 GMT+0530");
+  const minDiff = (parseInt(Math.abs(currTime.getTime()-startTime.getTime())/(1000*60)));
+  const x = minDiff/6;
+  const y = minDiff/3;
+  nIndex = Math.ceil(y);
+  index = Math.ceil(x);
+}
+
+setIndex();
 
 const indId = setInterval(() => {
   min += 1;
