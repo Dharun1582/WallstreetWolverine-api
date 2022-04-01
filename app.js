@@ -25,10 +25,10 @@ global.Min = 0;
 
 const setIndex = () => {
   const currTime = new Date();
-  const startTime = new Date("Sat Apr 01 2022 10:00:00 GMT+0530");
+  const startTime = new Date("Fri Apr 01 2022 10:00:00 GMT+0530");
   const minDiff = (parseInt(Math.abs(currTime.getTime()-startTime.getTime())/(1000*60)));
-  const x = minDiff/6;
-  const y = minDiff/3;
+  const x = minDiff/30;
+  const y = minDiff/15;
   nIndex = Math.ceil(y);
   index = Math.ceil(x);
 }
@@ -54,7 +54,7 @@ setIndex();*/
 
 const indId = setInterval(() => {
   min += 1;
-  if (min >= 6) {
+  if (min >= 30) {
     index += 1;
     min = 0;
   }
@@ -69,7 +69,7 @@ const indId = setInterval(() => {
 //news-index
 const nIndId = setInterval(() => {
   Min += 1;
-  if (Min >= 3) {
+  if (Min >= 15) {
     nIndex += 1;
     Min = 0;
   }

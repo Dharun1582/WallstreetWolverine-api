@@ -161,6 +161,12 @@ const buyStock = async (req, res) => {
 
 const sellStock = async (req, res) => {
     try {
+        const hour = new Date().getHours();
+        if ( hour > 16 || hour < 10 ){
+            return res.status(403).send({
+                message: "Market is Closed!"
+            });
+        }
         const { email } = req.user;
         const  column  = req.params.column;
         const  value  = req.params.value;
@@ -173,7 +179,7 @@ const sellStock = async (req, res) => {
 
         if(value != graph[index][column][5]){
             return res.status(403).send({
-                message: "OOOmbu"
+                message: "Suprise Mothafucka"
             });
         }
         const user = await users.findOne({
