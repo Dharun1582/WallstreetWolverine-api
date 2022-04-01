@@ -10,21 +10,21 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 module.exports = (passport) => {
         passport.use(new GoogleStrategy({
-                clientID: GOOGLE_CLIENT_ID,
-                clientSecret: GOOGLE_CLIENT_SECRET,
-                callbackURL: environment[process.env.NODE_ENV].url + "auth/google/callback"
-              },
-              function(accessToken, refreshToken, profile, done) {
-                  userProfile=profile;
-                  return done(null, userProfile);
-              }
+                        clientID: GOOGLE_CLIENT_ID,
+                        clientSecret: GOOGLE_CLIENT_SECRET,
+                        callbackURL: process.env.DEVURL + "api/auth/google/callback"
+                },
+                function (accessToken, refreshToken, profile, done) {
+                        userProfile = profile;
+                        return done(null, userProfile);
+                }
         ));
 
-        passport.serializeUser(function(user, cb) {
+        passport.serializeUser(function (user, cb) {
                 cb(null, user);
         });
-              
-        passport.deserializeUser(function(obj, cb) {
+
+        passport.deserializeUser(function (obj, cb) {
                 cb(null, obj);
         });
 }
